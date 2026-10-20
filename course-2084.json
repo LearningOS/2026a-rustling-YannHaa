@@ -2,7 +2,7 @@
   "schema": 1,
   "courseId": 2084,
   "repository": "LearningOS/2026a-rustling-YannHaa",
-  "commit": "e25e8cd1e60dedf7bc9da142811f726cfea290f9",
+  "commit": "6dff85e8b810ed61dbbd3882120acca39d0572b5",
   "score": 37,
   "totalScore": 110,
   "exercises": [
@@ -778,9 +778,9 @@
     }
   ],
   "student": "YannHaa",
-  "runId": "39429236208",
+  "runId": "39429757545",
   "runAttempt": "1",
   "upload": {
-    "status": "accepted"
+    "status": "pending"
   }
 }
