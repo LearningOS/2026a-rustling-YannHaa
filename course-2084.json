@@ -2,8 +2,8 @@
   "schema": 1,
   "courseId": 2084,
   "repository": "LearningOS/2026a-rustling-YannHaa",
-  "commit": "4af005f14209437e01bac399b803b896ac209379",
-  "score": 43,
+  "commit": "b2242bc17e92f3996eb47544bfc13b296a802527",
+  "score": 45,
   "totalScore": 110,
   "exercises": [
     {
@@ -310,16 +310,16 @@
     {
       "name": "hashmaps1",
       "max": 1,
-      "score": 0,
-      "status": "fail",
-      "exitCode": 1
+      "score": 1,
+      "status": "pass",
+      "exitCode": 0
     },
     {
       "name": "hashmaps2",
       "max": 1,
-      "score": 0,
-      "status": "fail",
-      "exitCode": 1
+      "score": 1,
+      "status": "pass",
+      "exitCode": 0
     },
     {
       "name": "hashmaps3",
@@ -778,9 +778,9 @@
     }
   ],
   "student": "YannHaa",
-  "runId": "39637140395",
+  "runId": "39726190580",
   "runAttempt": "1",
   "upload": {
-    "status": "accepted"
+    "status": "pending"
   }
 }
