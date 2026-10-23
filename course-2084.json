@@ -2,8 +2,8 @@
   "schema": 1,
   "courseId": 2084,
   "repository": "LearningOS/2026a-rustling-YannHaa",
-  "commit": "6e2d5676849e00ba16b5be5fbc8b843be98131e2",
-  "score": 54,
+  "commit": "aaa3407f78eb8981edcdb39cd7524e27f2a169d5",
+  "score": 57,
   "totalScore": 110,
   "exercises": [
     {
@@ -457,23 +457,23 @@
     {
       "name": "lifetimes1",
       "max": 1,
-      "score": 0,
-      "status": "fail",
-      "exitCode": 1
+      "score": 1,
+      "status": "pass",
+      "exitCode": 0
     },
     {
       "name": "lifetimes2",
       "max": 1,
-      "score": 0,
-      "status": "fail",
-      "exitCode": 1
+      "score": 1,
+      "status": "pass",
+      "exitCode": 0
     },
     {
       "name": "lifetimes3",
       "max": 1,
-      "score": 0,
-      "status": "fail",
-      "exitCode": 1
+      "score": 1,
+      "status": "pass",
+      "exitCode": 0
     },
     {
       "name": "tests1",
@@ -778,9 +778,9 @@
     }
   ],
   "student": "YannHaa",
-  "runId": "39907577843",
+  "runId": "39929191416",
   "runAttempt": "1",
   "upload": {
-    "status": "accepted"
+    "status": "pending"
   }
 }
