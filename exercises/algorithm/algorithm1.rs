@@ -2,8 +2,6 @@
 	single linked list merge
 	This problem requires you to merge two ordered singly linked lists into one ordered singly linked list
 */
-// I AM NOT DONE
-
 use std::fmt::{self, Display, Formatter};
 use std::ptr::NonNull;
 use std::vec::*;
@@ -70,13 +68,57 @@ impl<T> LinkedList<T> {
         }
     }
 	pub fn merge(list_a:LinkedList<T>,list_b:LinkedList<T>) -> Self
+    where
+        T: Ord,
 	{
-		//TODO
-		Self {
-            length: 0,
-            start: None,
-            end: None,
+        let mut result = Self::new();
+        let mut a = list_a.start;
+        let mut b = list_b.start;
+
+        while a.is_some() && b.is_some() {
+            let a_ptr = a.unwrap();
+            let b_ptr = b.unwrap();
+            let take_a = unsafe {
+                (*a_ptr.as_ptr()).val <= (*b_ptr.as_ptr()).val
+            };
+            let selected = if take_a { a_ptr } else { b_ptr };
+            let next = unsafe { (*selected.as_ptr()).next };
+
+            unsafe {
+                (*selected.as_ptr()).next = None;
+            }
+            match result.end {
+                Some(end_ptr) => unsafe {
+                    (*end_ptr.as_ptr()).next = Some(selected);
+                },
+                None => result.start = Some(selected),
+            }
+            result.end = Some(selected);
+
+            if take_a {
+                a = next;
+            } else {
+                b = next;
+            }
         }
+
+        let mut remaining = if a.is_some() { a } else { b };
+        while let Some(selected) = remaining {
+            remaining = unsafe { (*selected.as_ptr()).next };
+            unsafe {
+                (*selected.as_ptr()).next = None;
+            }
+            match result.end {
+                Some(end_ptr) => unsafe {
+                    (*end_ptr.as_ptr()).next = Some(selected);
+                },
+                None => result.start = Some(selected),
+            }
+            result.end = Some(selected);
+        }
+
+        result.length = list_a.length + list_b.length;
+        result
 	}
 }
 

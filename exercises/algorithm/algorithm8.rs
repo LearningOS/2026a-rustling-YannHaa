@@ -2,8 +2,6 @@
 	queue
 	This question requires you to use queues to implement the functionality of the stac
 */
-// I AM NOT DONE
-
 #[derive(Debug)]
 pub struct Queue<T> {
     elements: Vec<T>,
@@ -20,7 +18,7 @@ impl<T> Queue<T> {
         self.elements.push(value)
     }
 
-    pub fn dequeue(&mut self) -> Result<T, &str> {
+    pub fn dequeue(&mut self) -> Result<T, &'static str> {
         if !self.elements.is_empty() {
             Ok(self.elements.remove(0usize))
         } else {
@@ -28,7 +26,7 @@ impl<T> Queue<T> {
         }
     }
 
-    pub fn peek(&self) -> Result<&T, &str> {
+    pub fn peek(&self) -> Result<&T, &'static str> {
         match self.elements.first() {
             Some(value) => Ok(value),
             None => Err("Queue is empty"),
@@ -54,28 +52,34 @@ impl<T> Default for Queue<T> {
 
 pub struct myStack<T>
 {
-	//TODO
 	q1:Queue<T>,
 	q2:Queue<T>
 }
 impl<T> myStack<T> {
     pub fn new() -> Self {
         Self {
-			//TODO
 			q1:Queue::<T>::new(),
 			q2:Queue::<T>::new()
         }
     }
     pub fn push(&mut self, elem: T) {
-        //TODO
+        self.q1.enqueue(elem);
     }
-    pub fn pop(&mut self) -> Result<T, &str> {
-        //TODO
-		Err("Stack is empty")
+    pub fn pop(&mut self) -> Result<T, &'static str> {
+        if self.q1.is_empty() {
+            return Err("Stack is empty");
+        }
+
+        while self.q1.size() > 1 {
+            let value = self.q1.dequeue()?;
+            self.q2.enqueue(value);
+        }
+        let value = self.q1.dequeue()?;
+        std::mem::swap(&mut self.q1, &mut self.q2);
+        Ok(value)
     }
     pub fn is_empty(&self) -> bool {
-		//TODO
-        true
+        self.q1.is_empty()
     }
 }
 
